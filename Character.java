@@ -117,9 +117,30 @@ public abstract class Character {
      * Sets the character's name. This is used to add suffixes like (You) or (Player 1).
      * @param name The new name for the character.
      */
-    public void setName(String name) { this.name = name; }
-    public int getHealth() { return this.hp; }
-    public int getMaxHealth() { return this.maxHp; }
-    public int getStamina() { return this.stamina; }
-    public int getMaxStamina() { return this.maxStamina; }
+    public void setName(String name) { 
+        this.name = name; 
+    }
+    public int getHealth() { 
+        return this.hp; 
+    }
+    public int getMaxHealth() { 
+        return this.maxHp; 
+    }
+    public int getStamina() { 
+        return this.stamina; 
+    }
+    public int getMaxStamina() { 
+        return this.maxStamina; 
+    }
+    public void setHealth(int hp) {
+    this.hp = Math.max(0, Math.min(hp, this.maxHp));
+        }
+
+    public void setStamina(int stamina) {
+    this.stamina = Math.max(0, Math.min(stamina, this.maxStamina));
+    }
+    // === Heal function ===
+    public void heal(int amount) {
+    this.hp = Math.min(this.hp + amount, this.maxHp);
+    }
 }
